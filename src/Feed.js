@@ -7,26 +7,35 @@ import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import InputOption from './InputOption';
 import Post from './Post';
 import { db } from "./firebase";
+import firebase from 'firebase';
 
 import "./Feed.css"
 
 function Feed() {
-  const [posts, setPosts] = useState([])
+  const [input, setInput] = useState("");
+  const [posts, setPosts] = useState([]);
 
   useEffect( () => {
     db.collection("posts").onSnapshot(snapshot => {
-      setPosts(snapshot.docs.map(doc => (
+      setPosts(snapshot.docs.map((doc) => (
         {
           id: doc.id,
           data: doc.data(),
-        }
+        } 
       )))
     })
   }, [])
 
-  const sendPost = (e) => {
+  const sendPost = (e) => { 
     e.preventDefault();
 
+    db.collection('posts').add({
+      name: 'Ankur Rawat',
+      description: 'This is a test',
+      message: input,
+      photoUrl: "",
+      timestamp: firebase.firestore.FieldValue.serverTimestamp()
+    })
 
   }
 
@@ -36,7 +45,7 @@ function Feed() {
         <div className="feed__input">
             <CreateIcon />
             <form action="">
-                <input type="text"  placeholder='Start a post'/>
+                <input type="text" value={input} onChange={e => setInput(e.target.value)}  placeholder='Start a post'/>
                 <button onClick={sendPost} type="submit">Send</button>
             </form>
         </div>
