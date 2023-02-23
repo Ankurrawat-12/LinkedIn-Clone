@@ -67,13 +67,18 @@
     color: #0a66c2 !important;
 }
 
-.sidebar__button{
+.sidebar__bottom{
     text-align: left;
     padding: 10px;
     border: 1px solid lightgray;
     background-color: white;
     border-radius: 10px;
     margin-top: 10px;
+}
+
+.sidebar__bottom > p{
+    font-size: 13px;
+    padding-bottom: 10px;
 }
 
 .sidebar__recentItem{
@@ -91,4 +96,9 @@
     border-radius: 10px;
     cursor: pointer;
     color: black;
+}
+
+.sidebar__hash {
+    margin-right: 10px;
+    margin-left: 5px;
 }

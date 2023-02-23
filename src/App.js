@@ -1,7 +1,9 @@
 import React from "react";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import Feed from "./Feed";
+
 import "./App.css";
-import Header from "./components/Header";
-import Sidebar from "./components/Sidebar";
 
 function App() {
     return (
@@ -13,6 +15,7 @@ function App() {
                 {/* TODO: Sidebar */}
                 <Sidebar />
                 {/* TODO: Feed*/}
+                <Feed />
                 {/* TODO: Widgets */}
             </div>
         </div>
@@ -20,4 +23,3 @@ function App() {
 }
 
 export default App;
-// ! 1:12:41 Video duration 
